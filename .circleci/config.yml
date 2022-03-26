@@ -11,7 +11,7 @@ jobs:
         steps:
             - run: echo "hello world" > output.txt
             - persist_to_workspace:
-                  root: /tmp/workspace
+                  root: /tmp/dir
                   paths:
                       - output.txt
     print_output_file:
@@ -20,7 +20,7 @@ jobs:
         steps:
             - run: cat output.txt
             - attach_workspace:
-                  at: /tmp/workspace
+                  at: /tmp/dir
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
